@@ -1,0 +1,41 @@
+
+pqr ###
+
+
+pqrpp? - 3
+pqrppp
+pqrppq
+pqrppr
+
+pqrpq? - 3
+pqrpqp
+pqrpqq
+pqrpqr
+
+prrpr? - 3
+prrprp
+prrprq
+prrprr
+
+pqrp?p - 3
+pqrppp - repeat
+pqrpqp - repeat
+pqrprp
+
+pqrp?q - 3
+pqrppq - repeat
+pqrpqq - repeat
+pqrprq
+
+pqrp?r - 3
+pqrppr - repeat
+pqrpqr - repeat
+pqrprr
+
+pqr?pp - 3
+pqrppp - repeat
+pqrqpp
+pqrrpp
+
+
+
