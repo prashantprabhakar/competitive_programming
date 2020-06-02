@@ -25,4 +25,4 @@ let stack = function() {
 }
 
 
-module.exports = new stack()
+module.exports = stack
