@@ -31,7 +31,7 @@ function driver() {
     for(let i=1; i<=10; i++) {
         arr.push(i)
     }
-    let res = swardKill(arr, 1)
+    let res = swardKill(arr, 0)
     console.log(res)
 }
 
