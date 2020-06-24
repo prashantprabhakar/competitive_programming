@@ -9,6 +9,7 @@ function look_and_say_iteration(n) {
     return prevNo
 }
 
+// function to find next number based on previous number
 function findNext(num) {
     num = num.toString()
 
@@ -17,9 +18,9 @@ function findNext(num) {
     }
 
     let nextNum = ''
-    let count = 1
+    let count = 1 // count represents number of times a char occured consecutively
     for(let i=1; i<num.length; i++) {
-        if(num[i] === num[i-1]) count++
+        if(num[i] === num[i-1]) count++ // increase counter when prev and current no is same
         else {
             nextNum += `${count}${num[i-1]}`
             count=1
