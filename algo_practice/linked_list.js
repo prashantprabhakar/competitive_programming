@@ -6,6 +6,7 @@ class LinkedListNode  {
 }
 
 class LinkedList {
+
     constructor() {
         this.size = 0
         this.head = null
@@ -19,6 +20,18 @@ class LinkedList {
         if(this.head == null) {
             this.head = node
         } else {
+            let currentNode = this.head
+            while (currentNode.next) {
+                currentNode = currentNode.next
+            }
+            currentNode.next = node
+        }
+        this.size++
+    }
+
+    addNode(node) {
+        if(this.head == null) this.head = node
+        else {
             let currentNode = this.head
             while (currentNode.next) {
                 currentNode = currentNode.next
@@ -51,6 +64,10 @@ class LinkedList {
             curr = curr.next
         }
         console.log(str)
+    }
+
+    size() {
+        return this.size;
     }
 
     printInReverse() {

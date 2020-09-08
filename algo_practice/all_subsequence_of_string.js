@@ -27,6 +27,21 @@ function print_subsequence(input, output='') {
     print_subsequence(input.slice(1), output+input[0])
 }
 
+function all_combination_of_str(str, prefix='') {
+    console.log(prefix)
+    for(let i=0; i<str.length; i++) {
+        let newPrefix = prefix+str[i]
+        all_combination_of_str(str.slice(1), newPrefix)
+    }
+}
+
     
-    print_substr('abc')
-    print_subsequence('abc')
+print_substr('abc')
+print_subsequence('abc')
+all_combination_of_str('ab')
+
+/**
+ * a b c ab, ac, ba, bc, ca, cb 
+ */
+
+    

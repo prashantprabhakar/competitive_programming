@@ -36,7 +36,7 @@ function checkBodmasBracketsUsingStack(str) {
     return stack.IsEmpty()
 }
 
-function checkBodmasBracketsUsingStackUsingArray(str) {
+function checkBodmasBracketsUsingArray(str) {
     let stack = []
     let start_brackets = ['[', '{', '(' ]
     let end_brackets = [']', '}', ')' ]
@@ -76,5 +76,5 @@ console.log(checkBodmasBracketsUsingStack('[(])') === false)
 
 
 console.log("\n")
-console.log(checkBodmasBracketsUsingStackUsingArray('[()]{}{[()()]()}') === true)
-console.log(checkBodmasBracketsUsingStackUsingArray('[(])') === false)
+console.log(checkBodmasBracketsUsingArray('[()]{}{[()()]()}') === true)
+console.log(checkBodmasBracketsUsingArray('[(])') === false)

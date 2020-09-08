@@ -51,7 +51,8 @@ function _replaceAllOccurance(str, replaceChar, replaceWith) {
     return str.split('').map(char => char !== replaceChar ? char : replaceWith).join('')
 }
 
-let res = getAllpqr('#pq#')
+
+let res = getAllpqr('###')
 console.log(res.length)
 
 //let expected = ['pqrpp','pqrpq','pqrpr','pqrqp','pqrqq','pqrqr','pqrrp','pqrrq','pqrrr']
