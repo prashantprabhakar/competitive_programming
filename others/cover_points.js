@@ -7,11 +7,15 @@ function coverPoints(a, b) {
     // move from a[0], b[0] -> a[1], b[1] ...
     let i=0, sum=0
     while (i<a.length-1) {
-        sum += move_itr(a[i], b[i], a[i+1], b[i+1])
+        sum += calcDist(a[i], b[i], a[i+1], b[i+1])
         i++
     }
    
     console.log("c", sum)
+}
+
+function calcDist(x1, y1, x2, y2) {
+    return Math.max(Math.abs(x1-x2), Math.abs(y1-y2))
 }
 
 function move(x1, y1, x2, y2, count = 0) {
