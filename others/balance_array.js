@@ -20,59 +20,66 @@ function countBalance(arr) {
 
 }
 
+/**
+    Maintain PrefixSum and SuffixSum for odd and even index seperately.
+    Let consider the following variable:
+    leftOdd[i] : Denote the prefixSum of element on odd index till i-1.
+    leftEven[i] : Denote the prefixSum of element on even index till i-1.
+    rightOdd[i] : Denote the SuffixSum of element of odd index till i+1.
+    rightEven[i] : Denote the SuffixSum of element of even index till i+1.
 
-function countBalance1(arr)  {
-    let left_sum = [{}], right_sum = [{}]
-    left_sum[0].first = arr[0]
-    left_sum[0].second = 0
+    Now, check if the ith element is the special or not.
 
+    If leftOdd[i] + rightEven[i] == leftEven[i] + rightOdd[i], then ith element is special, so we increase the count.
+ */
+// based on solution approach
+
+function countBalance2(arr) {
+    
+    let leftOdd = [arr[0]], leftEven = [0], rightOdd = [], rightEven = []
+
+    // Get predix sum
     for(let i=1; i<arr.length; i++) {
-        if(i%2 == 0) {
-            left_sum[i].first = left_sum[i-1] + arr[i]
-            left_sum[i].second = left_sum[i-1].second
+        if((i+1) % 2 == 0) {
+            leftEven[i] = leftEven[i-1] + arr[i]
+            leftOdd[i] = leftOdd[i-1]
         } else {
-            left_sum[i].first = left_sum[i-1].first;
-            left_sum[i].second = left_sum[i-1].second + arr[i]
+            leftEven[i] = leftEven[i-1]
+            leftOdd[i] = leftOdd[i-1] + arr[i]
         }
+
     }
 
-    if(n%2 == 0) {
-        right_sum[n-1].first = 0
-        right_sum[n-1].second = arr[n-1]
+    // check if last element is even or odd
+    if(arr.length %2 == 0) {
+        rightEven[arr.length-1] = arr[arr.length-1]
+        rightOdd[arr.length-1] = 0
     } else {
-        right_sum[n-1].first=arr[n-1];
-        right_sum[n-1].second=0;
+        rightOdd[arr.length-1] = arr[arr.length-1]
+        rightEven[arr.length-1] = 0
     }
 
-    for(let i=n-1; i>=0; i--) {
-        if(i%2 == 0) {
-            right_sum[i].first = right_sum[i-1] + arr[i]
-            right_sum[i].second = right_sum[i-1].second
+    // find suffix sum
+    for(let i=arr.length-2; i>=0; i--) {
+        if((i+1) % 2 == 0) {
+            rightEven[i] = rightEven[i+1] + arr[i]
+            rightOdd[i] = rightOdd[i+1]
         } else {
-            right_sum[i].first = right_sum[i-1].first;
-            right_sum[i].second = right_sum[i-1].second + arr[i]
+            rightOdd[i] = rightOdd[i+1] + arr[i]
+            rightEven[i] = rightEven[i+1]
         }
     }
 
-    let count = 0, even =0, odd=0;
+    // Check count
+    let count = 0
     for(let i=0; i<arr.length; i++) {
-        if(i!=0) {
-            even = left_sum[i-1].first
-            odd = left_sum[i-1].second
-        }
-        if(i%2==0) {
-            let v1 = right_sum[i].first + arr[i]
-            let v2 = right_sum[i].second
-            even += v2
-            odd += v1
-        }
-        if(even == odd) count++
+        if(leftOdd[i] + rightEven[i] == leftEven[i] + rightOdd[i]) count++
     }
-
     return count
 
 }
 
 
+//console.log(countBalance([2,1,6,4]))
 console.log(countBalance([2,1,6,4]))
-console.log(countBalance1([2,1,6,4]))
+console.log(countBalance2([2,1,6,4]))
