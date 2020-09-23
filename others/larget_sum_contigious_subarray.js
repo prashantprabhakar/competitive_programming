@@ -6,6 +6,10 @@
   * Problem: Write an efficient program to find the sum of contiguous subarray within a one-dimensional array of numbers which has the largest sum.
   * Version2: Return start and end index of subarray
   */
+
+// Ques: Wht Kadane's algo does not work on all -ve nos
+
+
 //  Kadane’s algorithm 
 // Does not work for all -ve numbers
 function largetSubArraySum(arr) {
@@ -14,18 +18,19 @@ function largetSubArraySum(arr) {
     for(let i=0; i<arr.length; i++) {
         maxEndingHere = maxEndingHere + arr[i]
         if(maxSoFar < maxEndingHere )maxSoFar = maxEndingHere
-        if(maxEndingHere < 0) maxEndingHere = 0
+        if(maxEndingHere < 0) maxEndingHere = 0 // why this step is required
     }
 
     console.log({maxSoFar})
     return maxSoFar
 }
 
+// Doesn't work as expected
 function largetSubArraySum2(arr) {
     let maxEndingHere = 0, maxSoFar = 0
 
     for(let i=0; i<arr.length; i++) {
-        maxEndingHere = Math.max(maxEndingHere, maxEndingHere+arr[i], 0)
+        maxEndingHere = Math.max(maxEndingHere, maxEndingHere+arr[i])
         maxSoFar = Math.max(maxSoFar, maxEndingHere)
         //if(maxEndingHere < 0) maxEndingHere = 0
     }
@@ -55,8 +60,8 @@ function indexOfLargetSubArray(arr) {
 }
 
 largetSubArraySum([-2, -3, 4, -1, -2, 1, 5, -3])
-largetSubArraySum([-1, -2, -3])
+//largetSubArraySum([-1, -2, -3])
 
 largetSubArraySum2([-2, -3, 4, -1, -2, 1, 5, -3])
-largetSubArraySum2([-1, -2, -3])
+//largetSubArraySum2([-1, -2, -3])
 //indexOfLargetSubArray([-2, -3, 4, -1, -2, 1, 5, -3])
