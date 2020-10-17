@@ -15,15 +15,14 @@ const EMPTY_CELL = 0
 function isSafe(matrix, currentRow, currentCol, currentVal) {
     let BOARD_SIZE = matrix.length
 
-    // check if row is valid
     for(let i=0; i<BOARD_SIZE; i++) {
+        // check if row is valid
         if(matrix[currentRow][i] == currentVal) return false
-    }
-
-    // check if col is valid
-    for(let i=0; i<BOARD_SIZE; i++) {
+        // check if col is valid
         if(matrix[i][currentCol] == currentVal) return false
     }
+
+    
 
     // check square board
     let small_board_size = Math.sqrt(BOARD_SIZE)
@@ -72,8 +71,14 @@ function solveSudoku(matrix, row=0, col=0, emptyCount=-1) {
         if(isSafe(matrix, row, col, i)) {
             matrix[row][col] = i
             emptyCount--
-            return solveSudoku(matrix, row, col+1, emptyCount)
-        }
+            if(solveSudoku(matrix, row, col+1, emptyCount)) {
+                return true
+            } else {
+                // backtrack
+                matrix[row][col] = EMPTY_CELL
+                emptyCount++
+            }
+        } 
     }
     return false
 }
@@ -116,6 +121,18 @@ let matrix = [
 [ 6, 9, 2, 3, 5, 1, 8, 7, 4 ], 
 [ 7, 4, 5, 0, 8, 6, 3, 0, 9 ] ]
 
+let matrix2 = [
+    [ 5 , 3 , 0 , 0 , 7 , 0 , 0 , 0 , 0 ],
+    [ 6 , 0 , 0 , 1 , 9 , 5 , 0 , 0 , 0 ],
+    [ 0 , 9 , 8 , 0 , 0 , 0 , 0 , 6 , 0 ],
+    [ 8 , 0 , 0 , 0 , 6 , 0 , 0 , 0 , 3 ],
+    [ 4 , 0 , 0 , 8 , 0 , 3 , 0 , 0 , 1 ],
+    [ 7 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 6 ],
+    [ 0 , 6 , 0 , 0 , 0 , 0 , 2 , 8 , 0 ],
+    [ 0 , 0 , 0 , 4 , 1 , 9 , 0 , 0 , 5 ],
+    [ 0 , 0 , 0 , 0 , 8 , 0 , 0 , 7 , 9 ]
+    ]
 
 
-solveSudoku(matrix)
+
+solveSudoku(matrix2)
