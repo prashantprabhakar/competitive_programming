@@ -4,6 +4,8 @@
 Function.prototype.myCall1 = function(context) {
     // issues: if context has already a key with name 'fn'?
     // issue2: call with null fails
+
+    // this here is the function on which call is used, context is object passed as param to "call"
     context.fn = this;
     const args = Array.from(arguments).slice(1)
     return context.fn(...args)

@@ -32,7 +32,7 @@ let testObj = {
     'level': 'alert',
     'metaData': { 
         'weaponId': 4,
-        'error': ReferenceError: weaponid is not defined
+        'error': `ReferenceError: weaponid is not defined
 at _callee5$ (/home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/src/services/contracts/tradingContract.service.js:80:40)
 at tryCatch (/home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/node_modules/regenerator-runtime/runtime.js:62:40)
 at Generator.invoke [as _invoke] (/home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/node_modules/regenerator-runtime/runtime.js:296:22)
@@ -49,7 +49,7 @@ at Generator.invoke [as _invoke] (/home/prashant/personal/projects/reality-clash
 at Generator.prototype.(anonymous function) [as next] (/home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/node_modules/regenerator-runtime/runtime.js:114:21)
 at step (/home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
 at /home/prashant/personal/projects/reality-clash/projects/techsavyy/rcc/rc-trading/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
-at <anonymous> 
+at <anonymous> `
 } }
 
 console.log(listItem(testObj))
