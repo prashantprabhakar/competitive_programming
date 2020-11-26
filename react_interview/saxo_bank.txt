@@ -1,0 +1,21 @@
+Write a higher component like connect in Redux  
+Draw virtual dom of ReactJs with data structures.  
+Prototypal Inheritance  
+
+Polyfill for Array.map  
+Join two sorted arrays to form another sorted array.  
+
+How does virtual DOM in react works  
+HOC in React  
+When to chose React and when to chose Angular.  
+
+
+
+####################
+sprinkler
+
+React,
+DOM,
+Javascript in depth (polyfills, design patterns)
+Redux
+Some coding to test how you write frontend code

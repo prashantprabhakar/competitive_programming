@@ -21,15 +21,16 @@ function printCombinations(chars, k, prefix='') {
 
 }
 
+
 function driver(str, k) {
    let chars = [...new Set(str.split(''))]
-   return printCombinations(chars, k, '')
+   return test(chars, k, '')
 }
 
 
   
 //printCombinations('a😎b', 4)
-driver('aab', 4)
+driver('abc', 4)
   
   
    //for(let i=0; i<str.length; i++) {

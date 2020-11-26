@@ -38,7 +38,7 @@ function all_combination_of_str(str, prefix='') {
     
 print_substr('abc')
 print_subsequence('abc')
-all_combination_of_str('ab')
+all_combination_of_str('abc')
 
 /**
  * a b c ab, ac, ba, bc, ca, cb 

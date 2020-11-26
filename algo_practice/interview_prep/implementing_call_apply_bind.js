@@ -11,6 +11,11 @@ Function.prototype.myCall1 = function(context) {
     return context.fn(...args)
 }
 
+Function.prototype.simpleApply = function(_context, _args) {
+    _context.fn = this
+    return _context.fn(..._args)
+}
+
 Function.prototype.myCall = function(_context) {
     let context = (_context && typeof _context === 'object') ? _context : {}
     let randomKey = `ysd$${Math.random()}`
@@ -70,5 +75,7 @@ testFn.call({name: 'normal call'}, 1,2,3)
 testFn.myCall1({name: 'my call 1'}, 1,2,3)
 testFn.myCall({name: 'myCall'}, 1,2,3)
 testFn.myApply({name: 'myApply'}, [1,2,3])
+testFn.simpleApply({name: 'simpleApply'}, [1,2,3])
+
 testFn.bind({name: 'normal bind'})(1,2,3)
 testFn.myBind({name: 'normal bind'})(1,2,3)
