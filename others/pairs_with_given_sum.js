@@ -1,4 +1,6 @@
-
+/**
+ * Statement: Find unique pairs with given sum from an array
+ */
 
 // here we are finding unique pairs.. 
 function findPairsWithGivenSum(arr, k) {
@@ -43,6 +45,7 @@ function countPairsWithGivenSum(arr, k) {
     return pairCount
 }
 
-
-findPairsWithGivenSum([1,5,7, -1, 5, 1, 6], 6)
-countPairsWithGivenSum([1,5,7, -1, 5, 1, 6], 6)
+// findPairsWithGivenSum([1,5,7, -1, 5, 1, 6], 6)
+// countPairsWithGivenSum([1,5,7, -1, 5, 1, 6], 6)
+findPairsWithGivenSum([2,7,11,15], 9)
+findPairsWithGivenSum([10,50,90, 30], 60)
