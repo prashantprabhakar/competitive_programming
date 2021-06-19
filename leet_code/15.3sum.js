@@ -7,6 +7,15 @@
  * statement: Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
  */
 
+/**
+ * Approach:
+ * We loop over array and find the sum needed to make: ar[i] + target = 0
+ * We then use _findNumberWithGivenSum fuunction to find pairs in array whose sum is target
+ * We combine all these pairs with arr[i] to get the triplet.
+ * Now, to avoid having duplicate  triplet; we sort the triplet; and store them in a map as key
+ * Next time if we encounter same triplet; we ignore it
+ */
+
 // O(n^2) - not working
 function threeSum(arr, targetSum=0) {
   if(arr.length < 3) return []
