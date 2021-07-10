@@ -3,6 +3,13 @@
  * Hint1: Maintain PrefixSum and SuffixSum for odd and even index seperately.
  */
 
+/**
+ * Statement:
+ * Given an integer array A of size N. You need to count the number of special elements in the given array.
+    A element is special if removal of that element make the array balanced.
+    Array will be balanced if sum of even index element equal to sum of odd index element.
+ */
+
  // O(n^2) complexity; O(1) space
 function countBalance(arr) {
     let count = 0
