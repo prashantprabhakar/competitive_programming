@@ -3,6 +3,7 @@
  * The task is to rearange the chars in given string such that no 2 adjecent chars in string are same
  */
 
+// @@PENDING
 
 function rearrang(str) {
 

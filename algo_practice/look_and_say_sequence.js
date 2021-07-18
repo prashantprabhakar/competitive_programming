@@ -34,4 +34,4 @@ function findNext(num) {
 
 }
 
-console.log(look_and_say_iteration(7))
+console.log(look_and_say_iteration(13112221))
