@@ -19,7 +19,7 @@
 
 function longestCommonPrefix(strs) {
   if(strs.length == 0) return '';
-  if(strs.length == 1) return strs[1];
+  if(strs.length == 1) return strs[0];
   let res = lcp(strs[0], strs[1]);
   for(let i=2; i<strs.length; i++) {
     res = lcp(res, strs[i])
