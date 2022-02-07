@@ -1,0 +1,30 @@
+1. Given a file hierarchy as a string, find the file with maximum length in name.
+
+2. Swap LinkedList nodes in pair
+3. Design LRU cache
+4. Mountain array problem (check LC)
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+Q : String reversal word by word
+Q : Banana and Elephant Puzzle
+Q : Virtual Memory
+Q : Burn the binary tree.
+1.You have given a deck of 52 cards, algorithm for shuffle a deck of cards.
+2.Write an algorithm for chocolate wrapper problem...write some testcases for the same
+3.Two sum problem
+4.1000 coins and 10 bags problem
+5.Some basic OOPS concepts
+6.Sort array 0s,1s,2s in order N complexity
+7.Testcases of some small client and server application.
+8.Search element in sorted array with optimize algorithm....added some duplicates element in same array ..now find the starting index of the element.
+9.Factorial program and its testacses.
+10.Testcases of drop-box or cloud computing scenarios.
+Q: Describe how a secure transaction works on the internet.
+Write a program to convert string to integer. I.e "123" should be converted to 123.
+How can you decrypt an MD5 hash key?
+How would I write a scoped mutex object? This was asked by their architect
+Write code to identify duplicate words in a list of words.
+Write a function to sort a binary tree
+
+JS: build a function to promisify another function
+JS: build a function using streams to do some text transformation on large amounts of text
+JS: given a matrix with numbers ordered on the rows and columns, write an algorithm to determine the position of a given number

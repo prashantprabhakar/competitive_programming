@@ -17,3 +17,4 @@ function removeDuplicate(arr) {
 }
 
 removeDuplicate([1,2,2,2,2,3,4,5,5, 6])
+console.log(removeDuplicate([1,2,3]))
