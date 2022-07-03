@@ -10,19 +10,6 @@ const newLocal = 1;
  * A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. 
  */
 
-function longestCommonSubsequence(str1, str2) {
-  let dpMatrix = new Array(str1.length+1).fill(-1).map(() => (new Array(str2.length+1)).fill(-1));
-  // initialize of matrix
-  for(let i=0; i<str1.length+1; i++) {
-    dpMatrix[i][0] = 0;
-  }
-  for(let j=0; j<str2.length+1; j++) {
-    dpMatrix[0][j] = 0;
-  }
-  return longestCommonSubsequence_dp(str1, str2, dpMatrix);
-}
-
-
 function longestCommonSubsequence_recursion(str1, str2, i=str1.length, j=str2.length) {
   // base conditition
   if(i==0 || j==0) return 0; // empty substring will be a valid subsequence
@@ -53,7 +40,18 @@ function longestCommonSubsequence_momoized(str1, str2, i=str1.length, j=str2.len
   return memo[memoKey];
 }
 
-function longestCommonSubsequence_dp(str1, str2, dpMatrix) {
+function longestCommonSubsequence_dp(str1, str2) {
+
+  // initialize dpMatrix with cond if(i ==0 || j === 0) dpMatrix[i][j] = 0
+  const dpMatrix = new Array(str1.length+1).fill(-1).map(() => new Array(str2.length+1).fill(-1));
+
+  for(let i=0; i<str1.length+1; i++) {
+    dpMatrix[i][0] = 0;
+  }
+  for(let j=0; j<str2.length+1; j++) {
+    dpMatrix[0][j] = 0;
+  }
+
 
   for(let i=1; i<=str1.length; i++) {
     for(let j=1; j<=str2.length; j++) {
@@ -100,7 +98,27 @@ const tests = [
   }
 ]
 
-tests.forEach(test => console.log({
-  output: longestCommonSubsequence.apply(this, test.input),
-  expected: test.expected
-}))
+function main() {
+  console.log("\n********* LCS using recursion *********")
+  tests.forEach(test => console.log({
+    output: longestCommonSubsequence_recursion.apply(this, test.input),
+    expected: test.expected
+  }))
+
+  console.log("\n********* LCS using memoization (top-down up) *********")
+  tests.forEach(test => console.log({
+    output: longestCommonSubsequence_momoized.apply(this, test.input),
+    expected: test.expected
+  }))
+
+
+  console.log("\n********* LCS using bottom up DP *********")
+  tests.forEach(test => console.log({
+    output: longestCommonSubsequence_dp.apply(this, test.input),
+    expected: test.expected
+  }))
+  
+
+}
+
+main()
