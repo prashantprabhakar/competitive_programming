@@ -1,4 +1,3 @@
-const newLocal = 1;
 /**
  * URL:https://leetcode.com/problems/longest-common-subsequence/
  * source: ['leetcode']
@@ -15,11 +14,11 @@ function longestCommonSubsequence_recursion(str1, str2, i=str1.length, j=str2.le
   if(i==0 || j==0) return 0; // empty substring will be a valid subsequence
   
   if(str1[i-1] === str2[j-1]) {
-    return 1 + longestCommonSubsequence(str1, str2, i-1, j-1);
+    return 1 + longestCommonSubsequence_recursion(str1, str2, i-1, j-1);
   } else {
     return Math.max(
-      longestCommonSubsequence(str1, str2, i-1, j),
-      longestCommonSubsequence(str1, str2, i, j-1)
+      longestCommonSubsequence_recursion(str1, str2, i-1, j),
+      longestCommonSubsequence_recursion(str1, str2, i, j-1)
     )
   }
 }
@@ -29,7 +28,7 @@ function longestCommonSubsequence_momoized(str1, str2, i=str1.length, j=str2.len
   if(i==0 || j==0) return 0; // empty substring will be a valid subsequence
   let memoKey = `${i}_${j}`
   if(memo[memoKey] !== undefined) return memo[memoKey]
-  if(str1[i-1] === str2[j-1]) {
+  if(str1[i] === str2[j]) {
     memo[memoKey] = 1 + longestCommonSubsequence_momoized(str1, str2, i-1, j-1, memo);
   } else {
     memo[memoKey] = Math.max(
