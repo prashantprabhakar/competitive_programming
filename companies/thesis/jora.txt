@@ -1,0 +1,89 @@
+
+
+organization
+
+issue -> {
+    id
+    title
+    desc
+    priority: enum
+    assignee: string (Person)
+}
+
+
+Admin can add few more columns, for eg link to figma file -> 
+
+int, string, boolean, enum
+
+similar ops to Jira.
+
+crud ops
+
+_______________________________________-
+
+we can use mongoDB as database. 
+we can issues and users table.
+
+concerns:
+* 2 users are trying to update same issue at same time. --> database version, fcfc
+
+
+_____________________________________________________
+1 db instance 
+
+        fields: {
+            org_id: {
+                issue_id: {
+                    is_mdedatory:
+                    type: string
+                }
+            
+            },
+            mendatory: []
+        }
+
+        isssues: {
+            id,
+            title:
+            descp
+            prio: number,
+            assignee: <userId>
+            createdBy:
+            orgId: 
+        }
+
+        users: {
+            id:
+            authorization: enum,
+            name, details,
+            orgid
+
+        }
+
+        orgs: {
+            id,
+            orgDetails (name etc),
+
+        }
+
+
+
+
+/create-issue  
+    {
+        issuedetails,
+        cretedBY:
+        assignee: [userid]
+        orgid
+        ... extra fields
+    }
+
+    1. Validate against the schema that we have. reject if validation fails.
+    2. Direct instert database.
+
+
+/updateing-issue
+    1. schema run
+    2. update the db with first come first serve
+
+    
