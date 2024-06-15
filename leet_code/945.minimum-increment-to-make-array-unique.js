@@ -40,7 +40,7 @@ function minIncrementForUnique(nums) {
         if(!freqCount[i] || freqCount[i] === 1) {
             continue;
         }
-        let dupCount = freqCount[i] - 1;s
+        let dupCount = freqCount[i] - 1;
         result += dupCount;
         freqCount[i+1] = (freqCount[i+1] ?? 0) + dupCount;
     }
