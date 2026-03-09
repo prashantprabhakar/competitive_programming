@@ -1,5 +1,6 @@
 const ListNode = require("./ListNode");
 const TreeNode = require('./TreeNode');
+const treeUtil = require('./tree');
 
 exports.arrayToLinkedList = arr => {
     let head = tail = undefined;
@@ -17,35 +18,6 @@ exports.arrayToLinkedList = arr => {
     return head
 }
 
-// exports.arrayToTree = arr => {
-//     function toTree(i) {
-//         if(i >= arr.length) return null
-//         if(arr[i] === null) return null
-//         let node = new TreeNode(arr[i]);
-//         const leftChildIndex = 2*i + 1;
-//         const rightChildIndex = 2*i + 2;
-//         node.left = toTree(leftChildIndex)
-//         node.right = toTree(rightChildIndex)
-//         return node;
-//     }
-
-//     return toTree(0);
-// }
-
-exports.treeToArray = root => {
-    let arr = [];
-
-    function fromTree(node, i) {
-        if(!node)  return arr[i] = null
-        arr[i] = node ? node.val : null
-        const leftChildIndex = 2*i + 1;
-        const rightChildIndex = 2*i + 2;
-        fromTree(node.left, leftChildIndex);
-        fromTree(node.right, rightChildIndex)
-    }
-    fromTree(root, 0)
-    return arr;
-}
 
 exports.treeToObj = root => {
     function internal(node) {
@@ -57,3 +29,69 @@ exports.treeToObj = root => {
     }
     return internal(root)
 }
+
+// exports.arrayToTree = treeUtil.arrayToTree;
+
+/**
+ * Converts an array to a binary tree.
+ * @param {Array} arr - Array representation of the binary tree.
+ * @returns {TreeNode} - Root of the binary tree.
+ */
+function arrayToTree(arr) {
+    if (!arr || arr.length === 0) return null;
+
+    const root = new TreeNode(arr[0]);
+    const queue = [root];
+    let i = 1;
+
+    while (queue.length > 0 && i < arr.length) {
+        const current = queue.shift();
+
+        if (arr[i] !== null) {
+            current.left = new TreeNode(arr[i]);
+            queue.push(current.left);
+        }
+        i++;
+
+        if (i < arr.length && arr[i] !== null) {
+            current.right = new TreeNode(arr[i]);
+            queue.push(current.right);
+        }
+        i++;
+    }
+
+    return root;
+}
+
+/**
+ * Converts a binary tree to an array representation.
+ * @param {TreeNode} root - Root of the binary tree.
+ * @returns {Array} - Array representation of the binary tree.
+ */
+function treeToArray(root) {
+    if (!root) return [];
+
+    const result = [];
+    const queue = [root];
+
+    while (queue.length > 0) {
+        const current = queue.shift();
+
+        if (current) {
+            result.push(current.val);
+            queue.push(current.left);
+            queue.push(current.right);
+        } else {
+            result.push(null);
+        }
+    }
+
+    // Remove trailing nulls for a cleaner representation
+    while (result[result.length - 1] === null) {
+        result.pop();
+    }
+
+    return result;
+}
+
+module.exports = { arrayToTree, treeToArray };
