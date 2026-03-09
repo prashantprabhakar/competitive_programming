@@ -1,0 +1,3 @@
+/**
+ Claude Code: Use Terminal
+ */
